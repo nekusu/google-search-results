@@ -14,8 +14,10 @@
 	--icon: rgb(100, 100, 100);
 	--text: rgb(20, 20, 20);
 	--text-alt: rgb(100, 100, 100);
+	--text-alt2: rgb(60, 60, 60);
 	--selected: rgb(66, 133, 244);
 	--radius: 30px;
+	--radius-alt: 20px;
 	--lightest: 0.025;
 	--light: 0.05;
 	--dark: 0.0625;
@@ -34,6 +36,7 @@
 	--icon: rgb(200, 200, 200);
 	--text: rgb(240, 240, 240);
 	--text-alt: rgb(170, 170, 170);
+	--text-alt2: rgb(220, 220, 220);
 	--lightest: 0.075;
 	--light: 0.1;
 	--dark: 0.125;
@@ -48,17 +51,20 @@
 	color: var(--icon);
 }
 
+
+/*
 body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	height: 100vh;
 }
+*/
 
 button {
 	cursor: pointer;
-	background-color: var(--background-alt);
 	border-radius: var(--radius);
+	background-color: var(--background-alt);
 	box-shadow: var(--close-shadow);
 }
 
@@ -68,8 +74,8 @@ a {
 }
 
 li a:hover {
-	background-color: var(--hover-alt);
 	border-radius: var(--radius);
+	background-color: var(--hover-alt);
 }
 
 nav,
@@ -82,6 +88,9 @@ main {
 header {
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	z-index: 1;
+	background-color: var(--background);
 	box-shadow: var(--close-shadow);
 }
 
@@ -138,6 +147,7 @@ nav ul .nav-link.selected::after {
 	height: 3px;
 	width: 80%;
 	background-color: var(--selected);
+	border-radius: 2px 2px 0 0;
 }
 
 #account-icon {
@@ -189,14 +199,18 @@ nav ul .nav-link.selected::after {
 	background-color: transparent;
 }
 
+button:hover,
 #search-bar:hover,
 #search-bar:focus-within,
-button:hover {
+.result-card:hover,
+#result-info:hover {
 	background-color: var(--hover);
 }
 
+button:hover,
 #search-bar:focus-within,
-button:hover {
+.result-card:hover,
+#result-info:hover {
 	box-shadow: var(--distant-shadow);
 }
 
@@ -204,4 +218,162 @@ button:hover {
 	width: 716px;
 	margin-left: 150px;
 	margin-bottom: 2px;
+}
+
+main {
+	background-color: var(--background)
+}
+
+#results {
+	position: relative;
+	margin: 32px 170px;
+	width: 680px;
+}
+
+#results-stats {
+	margin-left: 25px;
+	font-size: 13px;
+	color: var(--text-alt);
+}
+
+.result-card {
+	display: flex;
+	flex-direction: column;
+	margin: 26px 0;
+	padding: 20px 25px;
+	border-radius: var(--radius-alt);
+	background-color: var(--background-alt);
+	box-shadow: var(--close-shadow);
+}
+
+.result-card .page-url {
+	font-size: 13px;
+	color: var(--text);
+}
+
+.result-card .page-url span {
+	position: relative;
+	top: 1.5px;
+	vertical-align: bottom;
+}
+
+.result-card .page-name {
+	margin: 5px 0;
+	font-size: 18px;
+}
+
+.result-card .page-description {
+	font-size: 13.5px;
+	color: var(--text-alt2);
+}
+
+#result-info {
+	position: absolute;
+	top: 45px;
+	left: 800px;
+	width: 400px;
+	border-radius: var(--radius);
+	background-color: var(--background-alt);
+	box-shadow: var(--close-shadow);
+}
+
+.result-card .page-url:hover,
+.result-card .page-name:hover,
+#result-info a:hover {
+	text-decoration: underline;
+}
+
+#result-info #info-header {
+	display: flex;
+	justify-content: space-between;
+	margin: 30px 30px 20px;
+}
+
+#result-info #info-header #header-name {
+	display: flex;
+	flex-direction: column;
+}
+
+#result-info #info-header #header-name a {
+	text-decoration: none;
+	margin-top: 6px;
+}
+
+#result-info #info-header h1 {
+	font-size: 26px;
+	font-weight: 500;
+	color: var(--text);
+}
+
+#result-info #info-header h2 {
+	margin: 4px 0;
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--text-alt);
+}
+
+#result-info #info-header img {
+	height: 100px;
+	width: 100px;
+}
+
+#result-info #info-website {
+	padding: 15px 30px;
+	border-top: 1px solid var(--background-dark);
+	border-bottom: 1px solid var(--background-dark);
+}
+
+#result-info #info-website span {
+	margin-right: 15px;
+	vertical-align: text-top;
+}
+
+.dark-mode .result-card .page-name,
+.dark-mode #result-info a {
+	color: var(--text-alt);
+}
+
+#result-info #info-description {
+	margin: 20px 30px 25px;
+	font-size: 13.5px;
+}
+
+#result-info #info-description p {
+	line-height: 23px;
+	color: var(--text-alt2);
+}
+
+#result-info #info-description div {
+	margin: 12px 0;
+	color: var(--text);
+}
+
+#result-info #info-profiles {
+	padding: 20px 30px;
+	border-top: 1px solid var(--background-dark);
+}
+
+#result-info #info-profiles h3 {
+	font-size: 18px;
+	font-weight: 500;
+	color: var(--text);
+}
+
+#result-info #info-profiles #profiles-group {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+
+#result-info #info-profiles #profiles-group .profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	line-height: 32px;
+	font-size: 13px;
+}
+
+#result-info #info-profiles #profiles-group .profile img {
+	height: 36px;
+	width: 36px;
 }
