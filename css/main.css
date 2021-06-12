@@ -17,7 +17,7 @@
 	--text-alt2: rgb(60, 60, 60);
 	--selected: rgb(66, 133, 244);
 	--radius: 30px;
-	--radius-alt: 20px;
+	--radius-alt: 25px;
 	--lightest: 0.025;
 	--light: 0.05;
 	--dark: 0.0625;
@@ -43,23 +43,13 @@
 	--darkest: 0.175;
 }
 
-.dark-mode {
-	background-color: rgb(44, 45, 49);
+body {
+	background-color: var(--background);
 }
 
 .material-icons-round {
 	color: var(--icon);
 }
-
-
-/*
-body {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100vh;
-}
-*/
 
 button {
 	cursor: pointer;
@@ -73,7 +63,8 @@ a {
 	text-decoration: none;
 }
 
-li a:hover {
+li a:hover,
+li a:focus {
 	border-radius: var(--radius);
 	background-color: var(--hover-alt);
 }
@@ -199,21 +190,6 @@ nav ul .nav-link.selected::after {
 	background-color: transparent;
 }
 
-button:hover,
-#search-bar:hover,
-#search-bar:focus-within,
-.result-card:hover,
-#result-info:hover {
-	background-color: var(--hover);
-}
-
-button:hover,
-#search-bar:focus-within,
-.result-card:hover,
-#result-info:hover {
-	box-shadow: var(--distant-shadow);
-}
-
 #bottom-nav {
 	width: 716px;
 	margin-left: 150px;
@@ -221,12 +197,15 @@ button:hover,
 }
 
 main {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	background-color: var(--background)
 }
 
 #results {
 	position: relative;
-	margin: 32px 170px;
+	margin: 32px 170px 15px;
 	width: 680px;
 }
 
@@ -271,16 +250,10 @@ main {
 	position: absolute;
 	top: 45px;
 	left: 800px;
-	width: 400px;
-	border-radius: var(--radius);
+	width: 420px;
+	border-radius: var(--radius-alt);
 	background-color: var(--background-alt);
 	box-shadow: var(--close-shadow);
-}
-
-.result-card .page-url:hover,
-.result-card .page-name:hover,
-#result-info a:hover {
-	text-decoration: underline;
 }
 
 #result-info #info-header {
@@ -376,4 +349,101 @@ main {
 #result-info #info-profiles #profiles-group .profile img {
 	height: 36px;
 	width: 36px;
+}
+
+#related-searches {
+	margin: 0 170px;
+	width: 680px;
+}
+
+#related-searches h2 {
+	padding: 10px 25px 15px;
+	font-size: 20px;
+	font-weight: 400;
+	color: var(--text)
+}
+
+#related-searches #related-products {
+	padding: 10px 0 5px;
+	border-radius: var(--radius-alt);
+	background-color: var(--background-alt);
+	box-shadow: var(--close-shadow);
+}
+
+#related-searches #related-products .product {
+	padding: 15px 25px;
+	border-top: 1px solid var(--background-dark);
+}
+
+#related-searches #related-products .product a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#related-searches #related-products .product div {
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+	font-size: 16px;
+	color: var(--text-alt2);
+}
+
+#related-searches #related-products .product img {
+	margin-right: 20px;
+	height: 40px;
+	width: 40px;
+}
+
+#related-searches #searches-examples {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 30px 0;
+}
+
+#related-searches #searches-examples .example {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	width: 48.5%;
+	padding: 6px 25px;
+	margin: 10px 0;
+	font-size: 16px;
+	color: var(--text);
+	border-radius: var(--radius);
+	background-color: var(--background-alt);
+	box-shadow: var(--close-shadow);
+}
+
+#related-searches #searches-examples .example span {
+	margin-right: 15px;
+	font-size: 20px;
+}
+
+#search-bar:hover {
+	background-color: var(--hover);
+}
+
+button:hover,
+#search-bar:focus-within,
+.result-card:hover,
+.result-card:focus-within,
+#result-info:hover,
+#result-info:focus-within,
+#related-searches #related-products:hover,
+#related-searches #related-products:focus-within,
+#related-searches #searches-examples .example:hover,
+#related-searches #searches-examples .example:focus-within {
+	background-color: var(--hover);
+	box-shadow: var(--distant-shadow);
+}
+
+.result-card .page-url:hover,
+.result-card .page-url:focus,
+.result-card .page-name:hover,
+.result-card .page-name:focus,
+#result-info a:hover,
+#result-info a:focus {
+	text-decoration: underline;
 }
