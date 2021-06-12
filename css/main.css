@@ -447,3 +447,49 @@ button:hover,
 #result-info a:focus {
 	text-decoration: underline;
 }
+
+footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 20px;
+	background-color: var(--background-alt);
+	box-shadow: var(--top-shadow);
+}
+
+#country-info div {
+	margin-right: 26px;
+}
+
+#country-info,
+#footer-nav {
+	padding: 16px 195px;
+	min-height: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	font-size: 13px;
+	color: var(--text-alt);
+}
+
+#footer-nav {
+	margin-left: -12px;
+	padding-left: 195px;
+	border-top: 1px solid var(--background-dark);
+}
+
+#country-info ul,
+#footer-nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	list-style: none;
+}
+
+#country-info ul li a,
+#footer-nav ul li a {
+	margin-right: 14px;
+	padding: 6px 12px;
+	text-decoration: none;
+	color: var(--text-alt);
+}
