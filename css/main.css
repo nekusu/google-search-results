@@ -5,7 +5,7 @@
 	box-sizing: border-box;
 	outline: none;
 	font-family: Poppins;
-	transition: all 0.25s ease;
+	transition: box-shadow 0.25s ease, background-color 0.25s ease;
 	--background: white;
 	--background-alt: rgb(245, 245, 245);
 	--background-dark: rgb(220, 220, 220);
@@ -259,7 +259,7 @@ main {
 #result-info #info-header {
 	display: flex;
 	justify-content: space-between;
-	margin: 30px 30px 20px;
+	padding: 30px 30px 20px;
 }
 
 #result-info #info-header #header-name {
@@ -478,18 +478,99 @@ footer {
 	border-top: 1px solid var(--background-dark);
 }
 
-#country-info ul,
-#footer-nav ul {
+footer ul {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	list-style: none;
 }
 
-#country-info ul li a,
-#footer-nav ul li a {
+footer ul li a {
 	margin-right: 14px;
 	padding: 6px 12px;
 	text-decoration: none;
 	color: var(--text-alt);
+}
+
+@media screen and (max-width: 1430px) {
+	#result-info {
+		position: static;
+		width: 680px;
+		margin-top: 26px;
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	#container {
+		overflow-x: auto;
+	}
+	.nav-group {
+		min-width: 138px;
+	}
+	.nav-group#left {
+		width: 100%;
+	}
+	#search-bar {
+		width: 100%;
+		margin: 0 20px;
+	}
+	#bottom-nav {
+		flex-wrap: nowrap;
+		width: 100%;
+		min-width: 680px;
+		max-width: 716px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#result-info {
+		width: 100%;
+	}
+	section {
+		width: calc(100% - 36px) !important;
+		max-width: 680px;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+	#country-info,
+	#footer-nav {
+		justify-content: center;
+		padding: 8px 0;
+		margin: 0;
+	}
+	#country-info div {
+		margin: 0 7px;
+		padding: 8px 12px;
+	}
+	footer ul li {
+		padding: 8px;
+	}
+	footer ul li a {
+		margin: 7px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	nav,
+	.nav-group {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.nav-group ul {
+		display: none;
+	}
+	.nav-group button {
+		position: absolute;
+		top: 20px;
+		right: 16px;
+	}
+	#search-bar {
+		margin: 0;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	#related-searches #searches-examples .example {
+		width: 100%;
+		min-width: auto;
+	}
 }
