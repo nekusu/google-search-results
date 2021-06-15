@@ -183,11 +183,12 @@
 	<script>
 		function darkMode() {
 			let element = document.documentElement
+			let darkModeButton = document.getElementById("dark-mode-button")
 
 			if (element.classList.contains("dark-mode"))
-				document.getElementById("dark-mode-button").innerHTML = "&#xe51c;"
+				darkModeButton.innerHTML = "&#xe51c;"
 			else
-				document.getElementById("dark-mode-button").innerHTML = "&#xe518;"
+				darkModeButton.innerHTML = "&#xe518;"
 
 			element.classList.toggle("dark-mode")
 		}

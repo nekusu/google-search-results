@@ -5,7 +5,10 @@
 	box-sizing: border-box;
 	outline: none;
 	font-family: Poppins;
-	transition: box-shadow 0.25s ease, background-color 0.25s ease, border-radius 0.2s ease;
+	transition: all 0.25s ease;
+}
+
+:root {
 	--background: white;
 	--background-alt: rgb(245, 245, 245);
 	--background-dark: rgb(220, 220, 220);
@@ -27,7 +30,7 @@
 	--top-shadow: 0 -2px 6px rgba(0, 0, 0, var(--lightest)), 0 -8px 14px rgba(0, 0, 0, var(--light));
 }
 
-.dark-mode * {
+.dark-mode {
 	--background: rgb(44, 45, 49);
 	--background-alt: rgb(39, 40, 44);
 	--background-dark: rgb(30, 31, 35);
@@ -181,7 +184,7 @@ nav ul .nav-link.selected::after {
 
 #search-bar input {
 	position: relative;
-	top: 0px;
+	top: 0;
 	height: 30px;
 	width: 100%;
 	margin: 0 14px 0 6px;
